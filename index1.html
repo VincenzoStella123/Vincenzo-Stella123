@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Il mio sito 🌟</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #fff7e6, #fffaf0);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    /* Animazione scritta */
+    @keyframes typing {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+  
+    /* Animazione del cursore lampeggiante */
+    @keyframes blink {
+      0%, 50%, 100% {
+        border-color: transparent;
+      }
+      25%, 75% {
+        border-color: #ff6600;
+      }
+    }
+  
+    /* Nuova animazione per rimuovere la barra del cursore */
+    @keyframes remove-cursor {
+      100% {
+        border-right: none; /* Rimuove la barra */
+      }
+    }
+  
+    h1 {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 4px solid #ff6600;
+      width: 0;
+      animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite, remove-cursor 0s 3s forwards; 
+    }
+  
+    /* Loader iniziale */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: #fff7e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeOut 1s ease 1s forwards;
+    }
+  
+    #loader::after {
+      content: "✨ Caricamento...";
+      font-size: 1.6em;
+      color: #ff6600;
+      animation: bounce 1s infinite;
+    }
+  
+    /* Scroll fade-in */
+    .hidden {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+  
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+  
+    header {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+  
+    h1 {
+      font-size: 3em;
+      color: #ff6600;
+      margin-bottom: 20px;
+    }
+  
+    h2 {
+      font-size: 2em;
+      color: #3366cc;
+      margin-top: 50px;
+    }
+  
+    p {
+      font-size: 1.3em;
+      max-width: 700px;
+    }
+  
+    section {
+      width: 100%;
+      margin-top: 40px;
+      border-top: 1px solid #eee;
+      padding-top: 40px;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+    }
+  
+    li {
+      background-color: #ffe9cc;
+      margin: 15px 0;
+      padding: 18px 24px;
+      border-radius: 14px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, background 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+  
+    li:hover {
+      background-color: #ffd9a0;
+      transform: translateY(-4px);
+    }
+  
+    li a {
+      flex: 1;
+      display: block;
+      text-decoration: none;
+      color: #cc3300;
+      font-weight: 600;
+      font-size: 1.2em;
+    }
+  
+    .note {
+      background-color: #d9f9d9;
+      padding: 18px 24px;
+      border-radius: 14px;
+      font-size: 1.2em;
+      margin-top: 20px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+  
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 30px 10px;
+      background-color: #f0f8ff;
+      font-size: 1em;
+      color: #555;
+      margin-top: 80px;
+    }
+  
+    footer a {
+      color: #3366cc;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  
+    /* Animazioni */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+  
+    .icon-animated {
+      display: inline-block;
+      font-size: 1.4em;
+      transition: transform 0.3s ease;
+    }
+  
+    .icon-animated:hover {
+      animation: bounce 0.5s ease;
+    }
+  
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.4em;
+      }
+  
+      h2 {
+        font-size: 1.6em;
+      }
+  
+      p, li, .note {
+        font-size: 1em;
+      }
+    }
+  </style>
+  
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Ciao! Sono Vincenzo 🌟</h1>
+      <p>
+        Benvenuto nel mio sito personale!<br>
+        Qui tengo le mie <strong>presentazioni</strong> e gli <strong>appunti di scuola</strong> ✏️
+      </p>      
+    </header>
+
+    <section>
+      <h2> <span class="icon-animated">🧑‍🏫</span> Le mie presentazioni scolastiche:</h2>
+      <ul>
+        <li><a href="https://vincenzostella123.github.io/L-evoluzione-dell-uomo/" target="_blank">L'evoluzione dell'uomo 🐵➡️🧠</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2> <span class="icon-animated">📚</span> I miei appunti:</h2>
+      <ul>
+        <li><a href="appunti-matematica.html">Matematica ➕</a></li>
+        <li><a href="appunti-scienze.html">Scienze 🔬</a></li>
+        <li><a href="appunti-italiano.html">Italiano ✍️</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2> <span class="icon-animated">🧠</span> Cosa ho imparato questa settimana:</h2>
+      <div class="note">
+        Questa settimana ho imparato che gli esseri umani sono cambiati tantissimo nel tempo! 🐵➡️👨🏻 Sapevo che prima c’erano degli uomini preistorici, ma ora so che sono passati milioni di anni prima che diventassero come noi. Ho anche visto come i primi uomini usavano gli strumenti, come i sassi, per cacciare e difendersi.
+      </div>
+    </section>
+
+    <footer style="
+  width: 100%;
+  background-color: #f0f8ff;
+  padding: 40px 20px;
+  margin-top: 80px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+">
+  <p style="font-size: 1.3em; margin-bottom: 20px; color: #333; max-width: 600px;">
+    Hai domande o suggerimenti? 😊
+  </p>
+
+  <div style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  ">
+    <!-- Pulsante Email -->
+    <a href="mailto:vincenzo@esempio.com" style="
+      background-color: #3366cc;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    " onmouseover="this.style.backgroundColor='#264d99'" onmouseout="this.style.backgroundColor='#3366cc'">
+      📬 Scrivimi
+    </a>
+
+    <!-- Pulsante Instagram -->
+    <a href="https://www.instagram.com/vincenzostella123" target="_blank" style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e1306c;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    " onmouseover="this.style.backgroundColor='#c2185b'" onmouseout="this.style.backgroundColor='#e1306c'">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 26px; height: 26px; margin-right: 10px;">
+      Instagram
+    </a>
+  </div>
+
+  <p style="font-size: 1em; color: #555;">
+    © 2025 Vincenzo Stella | 
+    <a href="#" style="color:#3366cc; text-decoration:none;">Clicca qui per tornare su</a>
+  </p>
+</footer>
+
+  </div>
+
+</body>
+</html>
